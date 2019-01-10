@@ -1,0 +1,52 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    volumes:
+      - "./.data/db:/var/lib/mysql"
+    restart: on-failure
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:latest
+    volumes:
+      - "./source:/var/www/html/"
+      - "./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini"
+    links:
+      - db
+    ports:
+      - "9009:80"
+    restart: on-failure
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_PASSWORD: wordpress
+
+  wpcli:
+    image: wordpress:cli
+    user: xfs
+    volumes:
+    - "./source:/var/www/html/"
+    links:
+      - db
+    depends_on:
+      - db
+      - wordpress
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+        - db:db
+    ports:
+        - 9119:80
+    environment:
+        MYSQL_USER: wordpress
+        MYSQL_PASSWORD: wordpress
+        MYSQL_ROOT_PASSWORD: wordpress

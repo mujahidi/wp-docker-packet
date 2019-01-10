@@ -1,0 +1,17 @@
+{
+  "name": "wp-docker-packet",
+  "version": "0.0.1",
+  "description": "Wordpress, WP-CLI, PHPMYADMIN with Docker and BrowserSync",
+  "scripts": {
+    "start": "NODE_ENV=development node ./scripts/start.js",
+    "build": "NODE_ENV=production node ./scripts/build.js",
+    "postinstall": "npm run build"
+  },
+  "author": "mujahidi",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "browser-sync-webpack-plugin": "^1.1.4",
+    "webpack": "^2.4.1"
+  }
+}
