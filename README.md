@@ -84,7 +84,7 @@ Any arguments we pass to docker-compose must appear before the container name. I
 Anything that would come after the container name would override the “command” setting that we set above. In this case, the default is `--info`, but we can override it to something useful like this:
 
 ```bash
-$ docker-compose run -rm wpcli post list
+$ docker-compose run --rm wpcli post list
 ```
 
 This is the same as running the following wp-cli command
