@@ -16,8 +16,11 @@ module.exports = {
           "./source/wp-content/themes/**/*.php",
           "./source/wp-content/themes/**/**/*.php",
           "./source/wp-content/themes/**/*.js",
+          "./source/wp-content/plugins/**/*.js",
+          "./source/wp-content/plugins/**/*.php",
+          "./source/wp-content/plugins/**/*.css",
         ],
-        proxy: 'http://localhost:9009/',
+        proxy: 'http://localhost:8000/',
       }),
   ].filter(Boolean),
 };
