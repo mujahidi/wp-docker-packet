@@ -1,0 +1,17 @@
+tasks:
+  - name: docker
+    command: docker-compose up
+
+ports:
+  - port: 8000
+    onOpen: open-preview
+  - port: 9119
+    onOpen: ignore
+  - port: 3306
+    onOpen: ignore
+
+vscode:
+  extensions:
+    - ms-azuretools.vscode-docker
+    - formulahendry.auto-complete-tag
+    - johnbillion.vscode-wordpress-hooks
