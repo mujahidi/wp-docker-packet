@@ -24,7 +24,7 @@ services:
         links:
             - db:database
         ports:
-            - "8000:80"
+            - "0.0.0.0:8000:80"
         restart: on-failure
         environment:
             WORDPRESS_DB_HOST: db:3306
@@ -55,7 +55,7 @@ services:
         depends_on: 
             - db
         ports:
-            - 9119:80
+            - "0.0.0.0:9119:80"
         environment:
             WORDPRESS_DB_HOST: db:3306
             MYSQL_USER: wordpress

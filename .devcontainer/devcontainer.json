@@ -4,6 +4,6 @@
 	"service": "wordpress",
 	"forwardPorts": [ 8000, 9119 ],
 	"workspaceFolder": "/var/www/html/",
-	"postCreateCommand": "/var/www/html/wp-content/plugins/${localWorkspaceFolderBasename}/.devcontainer/setup.sh",
+	"postCreateCommand": "docker-compose up",
 	"remoteUser": "www-data"
 }
